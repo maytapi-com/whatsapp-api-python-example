@@ -137,6 +137,22 @@ def webhook():
                         "type": "product",
                         "productId": productIdTake
                     }
+            elif text == "poll":
+                body = {
+                    "type": "poll",
+                    "message": "Poll Message",
+                    "options": ["1", "2", "3"],
+                    "only_one": True  # Optional
+                }
+            elif text == "sticker":
+                body = {
+                    "type": "sticker",
+                    "message": "https://cdnydm.com/wh/aERKsVRyYAO9enBQrRwjlA.webp?size=512x512",
+                    "options": {
+                        "width": 500,
+                        "height": 500
+                    }
+                }
             else:
                 body = {"type": "text", "message": "Echo - " + text}
             body.update({"to_number": conversation})
